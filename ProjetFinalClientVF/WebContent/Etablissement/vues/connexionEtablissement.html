@@ -1,0 +1,55 @@
+<head>
+	<meta charset="UTF-8">
+	<title>Connexion</title>
+</head>
+
+<div>
+
+ 	<div class="container panel container-secondaire">
+ 	<h2>Connexion</h2>
+ 	</div>
+ 	<div class="container panel container-secondaire">
+ 		<br>
+		<form class="form-horizontal" name="connection" ng-controller="connection">
+			<div class="form-group">
+				<div class="col-sm-3"></div>
+				<label class="control-label col-sm-2"> LOGIN : </label>
+				<div class="col-sm-2">
+					<input type="text" name="login" ng-model="connexion.login" requi#ff7d7d>
+				</div>
+				<div class="col-sm-2">
+					<span id="requis" style="color: #ff7d7d; float:left" ng-show="connection.login.$error.required">Login requis</span>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-3"></div>
+				<label class="control-label col-sm-2"> MOT DE PASSE : </label>
+				<div class="col-sm-2">
+					<input name="mdp" type="password" ng-model="connexion.mdp" requi#ff7d7d> 
+				</div>
+				<div class="col-sm-2">
+					<span style="color: #ff7d7d; float:left" ng-show="connection.mdp.$error.required">Mot de passe requis</span>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+			<button class="btn btn-default"
+				ng-disabled=" 	connection.login.$invalid||
+								connection.mdp.$invalid"  
+				ng-click="seConnecter()">Se connecter</button>
+			<br>
+			
+			
+		</form>
+		
+		<form ng-controller="deconnection">
+			<button class="btn btn-default" 
+					ng-click="seDeconnecter()">Se déconnecter</button>		
+		</form>
+		
+		<form>
+			<h4>Vous n'avez pas de compte ? <a style = "color:#4c9a8d" href="../Etablissement/indexEtablissement.html#!/inscriptionEtablissement">S'inscrire</a></h4>
+		</form>
+	</div>
+</div>

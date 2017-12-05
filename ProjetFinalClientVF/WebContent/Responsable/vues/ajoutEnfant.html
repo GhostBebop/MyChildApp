@@ -1,0 +1,55 @@
+<head>
+<meta charset="UTF-8">
+<title>Gestion des mes enfants</title>
+</head>
+
+<div class="container panel container-secondaire-titre">
+	<h2>Ajout de mon enfant</h2>
+</div>
+
+<div class="container panel container-secondaire">
+	<br>
+	<form class="form-horizontal"name="myFormEnfant" ng-controller="registerEnfant">
+
+		<div class="form-group">
+			<div class="col-sm-3"></div>
+			<label class="control-label col-sm-2"> NOM : </label>
+			<div class="col-sm-2">
+				<input name="nom" type="text"
+				ng-model="enfant.nom" required></div>
+			<div class="col-sm-2">
+				 
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-3"></div>
+			<label class="control-label col-sm-2"> Prénom : </label>
+			<div class="col-sm-2">
+				<input name="prenom" type="text"
+				ng-model="enfant.prenom" required> </div>
+			<div class="col-sm-2">
+				
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-3"></div>
+			<label class="control-label col-sm-2"> Date de naissance : </label>
+			<div class="col-sm-2">
+				<input name="date" type="text"
+				ng-model="enfant.dateDeNaissance" required>
+			</div>
+			<div class="col-sm-2">
+			 
+			</div>
+		</div>
+
+		<button class="btn btn-default"
+			ng-disabled="myFormEnfant.nom.$invalid||  
+								myFormEnfant.prenom.$invalid||  
+								myFormEnfant.date.$invalid "
+			ng-click="registerEnfant1()">Enregistrer les informations</button>
+		<br>
+	</form>
+</div>

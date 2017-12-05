@@ -1,0 +1,91 @@
+<head>
+	<meta charset="UTF-8">
+	<title>Inscription Responsable</title>
+
+</head>
+
+<div>
+
+	<div class="container panel container-secondaire" >
+	<h2>Inscription</h2><br>
+		<form class="form-horizontal" name="myForm" ng-controller="registerResponsable">
+			<div class="form-group">
+				<label class="control-label col-sm-2"> NOM : </label>
+				<div class="col-sm-8">
+					<input name="nom" type="text" ng-model="responsable.nom" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+<!-- 					<span style="color: #ff7d7d; float:left" ng-show="myForm.nom.$error.required">NOM requis</span><br> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Prénom : </label>
+				<div class="col-sm-8">
+					<input name="prenom" type="text" ng-model="responsable.prenom" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+<!-- 					<span style="color: #ff7d7d; float:left" ng-show="myForm.prenom.$error.required">Prénom requis</span><br> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Code Postal : </label>
+				<div class="col-sm-8">
+					<input name="codePostal" type="text" ng-model="responsable.codePostal" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+<!-- 					<span style="color: #ff7d7d; float:left" ng-show="myForm.codePostal.$error.required">Code postal requis</span><br> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Ville : </label>
+				<div class="col-sm-8">
+					<input name="ville" type="text" ng-model="responsable.ville" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+<!-- 					<span style="color: #ff7d7d; float:left" ng-show="myForm.ville.$error.required">Ville requise</span><br> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Adresse : </label>
+				<div class="col-sm-8">
+					<input name="adresse" type="text" ng-model="responsable.adresse" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+<!-- 					<span style="color: #ff7d7d; float:left" ng-show="myForm.adresse.$error.required">Adresse requise</span><br> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Identifiant : </label>
+				<div class="col-sm-8">
+					<input type="text" name="login" ng-model="connexion.login" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+<!-- 					<span style="color: #ff7d7d; float:left" ng-show="myForm.login.$error.required">Identifiant requis</span><br> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Mot de passe : </label>
+				<div class="col-sm-8">
+					<input name="mdp" type="password" ng-model="connexion.mdp" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+<!-- 					<span style="color: #ff7d7d; float:left" ng-show="myForm.mdp.$error.required">Mot de passe requis</span><br> -->
+				</div>
+			</div>
+		
+			<div class="form-group">        	
+				<button class="btn btn-default"
+						ng-disabled="myForm.nom.$invalid|| 
+									myForm.prenom.$invalid||
+									myForm.ville.$invalid||  
+									myForm.adresse.$invalid ||  
+									myForm.codePostal.$invalid||  
+									myForm.login.$invalid||  
+									 myForm.mdp.$invalid"
+						ng-click="registerResponsable1()">Inscription</button>
+					<br>
+			</div>
+  
+		</form>
+	</div>
+</div>

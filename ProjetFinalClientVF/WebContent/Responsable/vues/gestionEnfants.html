@@ -1,0 +1,204 @@
+<head>
+<meta charset="UTF-8">
+<title>Gestion des mes enfants</title>
+</head>
+
+<div>
+	<div class="container panel container-secondaire">
+		<h2>Visualisation des informations enregistrées</h2>
+	</div>
+	
+	<div ng-controller="selectEnfant"
+		class="container panel container-secondaire">
+		<h3>Sélectionner un enfant</h3>
+
+
+		<select ng-model="enf" ng-options="e as e.prenom for e in mesEnfants">
+
+		</select> <br> <br>
+
+		<button class="btn btn-default"
+			ng-click="afficherFichePrincipaleEnfant(enf.idEnfant)">Sélectionner
+		</button>
+		<br> <br>
+
+	</div>
+</div>
+<div class="row">
+	<form>
+		<div class="container panel container-secondaire">
+			<h3>Sélectionner une fiche à visualiser</h3>
+			<p>{{rootEnfant.prenom}}</p>
+			<br> <div class="col-sm-2"></div>
+				<div class="col-sm-2"><input type="radio" ng-model="myVar" value="fichePrincipale"> Fiche principale</div>
+				<div class="col-sm-2"><input type="radio" ng-model="myVar" value="ficheImage"> Fiche droit à l'image</div>
+				<div class="col-sm-2"><input type="radio" ng-model="myVar" value="ficheMedical"> Fiche médicale</div> 
+				<div class="col-sm-2"><input type="radio" ng-model="myVar" value="ficheVaccin"> Fiche vaccination</div>
+				<div class="col-sm-2"></div> <br> <br> <br>
+		</div>
+	</form>
+
+	<div ng-switch="myVar">
+		<div ng-switch-when="fichePrincipale">
+			<div ng-controller="supprimerFiche"
+				class="container panel container-secondaire">
+				<h3>Fiche principale</h3>
+				<table class="table">
+
+					<thead>
+						<tr>
+							<th>NOM</th>
+							<th>Prénom</th>
+							<th>Date de naissance</th>
+							<th>Ville</th>
+							<th>Adresse</th>
+							<th>Tel. maison</th>
+							<th>Régime cantine</th>
+							<th>Statut étude</th>
+							<th>Statut sortie</th>
+							<th>Transport</th>
+							<th>Pension</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="f in mesFichesPrincipales">
+						<td>{{f.monEnfant.nom}}</td>
+						<td>{{f.monEnfant.prenom}}</td>
+						<td>{{f.monEnfant.dateDeNaissance}}</td>
+						<td>{{f.ville}}</td>
+						<td>{{f.adresse}}</td>
+						<td>{{f.telMaison}}</td>
+						<td>{{f.regimeCantine}}</td>
+						<td>{{f.statutEtude}}</td>
+						<td>{{f.statutSortie}}</td>
+						<td>{{f.transport}}</td>
+						<td>{{f.pension}}</td>
+						<td><button class="btn btn-default"
+								ng-click="supprimerFiche(f.idFiche,f.monEnfant.idEnfant)">Supprimer</button></td>
+
+					</tr>
+
+				</table>
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<div ng-switch="myVar">
+		<div ng-switch-when="ficheImage">
+			<div ng-controller="supprimerFiche"
+				class="container panel container-secondaire">
+				<h3>Fiche image</h3>
+
+				<table class="table">
+
+					<thead>
+						<tr>
+							<th>NOM</th>
+							<th>Prénom</th>
+							<th>Date de naissance</th>
+							<th>Statut image</th>
+
+						</tr>
+					</thead>
+					<tr ng-repeat="f in mesFichesImages">
+						<td>{{f.monEnfant.nom}}</td>
+						<td>{{f.monEnfant.prenom}}</td>
+						<td>{{f.monEnfant.dateDeNaissance}}</td>
+						<td>{{f.statutImage}}</td>
+						<td><button class="btn btn-default"
+								ng-click="supprimerFiche(f.idFiche,f.monEnfant.idEnfant)">Supprimer</button></td>
+					</tr>
+
+				</table>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<div ng-switch="myVar">
+		<div ng-switch-when="ficheMedical">
+			<div ng-controller="supprimerFiche"
+				class="container panel container-secondaire">
+				<h3>Fiches médicales</h3>
+				<table class="table">
+
+					<thead>
+						<tr>
+							<th>NOM</th>
+							<th>Prénom</th>
+							<th>Date de naissance</th>
+							<th>Statut spécialiste</th>
+							<th>Observation</th>
+							<th>Traitement</th>
+
+
+						</tr>
+					</thead>
+					<tr ng-repeat="f in mesFichesMedicales">
+						<td>{{f.monEnfant.nom}}</td>
+						<td>{{f.monEnfant.prenom}}</td>
+						<td>{{f.monEnfant.dateDeNaissance}}</td>
+						<th>{{f.statutSpecialiste}}</th>
+						<th>{{f.observation}}</th>
+						<th>{{f.traitement}}</th>
+						<td><button class="btn btn-default"
+								ng-click="supprimerFiche(f.idFiche,f.monEnfant.idEnfant)">Supprimer</button></td>
+					</tr>
+
+				</table>
+
+
+			</div>
+
+		</div>
+	</div>
+
+	<div ng-switch="myVar">
+		<div ng-switch-when="ficheVaccin">
+			<div ng-controller="supprimerFiche"
+				class="container panel container-secondaire">
+				<h3>Fiche vaccination</h3>
+
+				<table class="table">
+
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>Date de naissance</th>
+							<th>Statut</th>
+
+						</tr>
+					</thead>
+					<tr ng-repeat="f in mesFichesVaccins">
+						<td>{{f.monEnfant.nom}}</td>
+						<td>{{f.monEnfant.prenom}}</td>
+						<td>{{f.monEnfant.dateDeNaissance}}</td>
+						<th>{{f.statutVaccins}}</th>
+						<td><button class="btn btn-default"
+								ng-click="supprimerFiche(f.idFiche,f.monEnfant.idEnfant)">Supprimer</button></td>
+					</tr>
+					</tbody>
+				</table>
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+</div>

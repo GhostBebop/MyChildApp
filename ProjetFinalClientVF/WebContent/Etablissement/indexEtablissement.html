@@ -1,0 +1,43 @@
+<head>
+<meta charset="UTF-8">
+<title>Accueil Etablissement</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../Ressources/CSS/style.css">
+
+</head>
+
+<body ng-app="appEtablissement">
+	
+	<div class="barette">
+		<div class="container">
+			<div style="text-align:left" class="col-sm-6">myChild'app</div>
+			<div style="text-align:right" class="col-sm-6">Interface Etablissement</div>
+		</div>
+	</div>
+	
+	<nav class="navbar navbar-default">
+	  <div class="container">
+	    <ul class="nav navbar-nav">
+	        <li><a ng-show="myValue" href="#!mesFiches"title="Mes fiches" id=grp-logo><span class="glyphicon glyphicon-eye-open logo-small"></span>  Visualiser mes fiches</a></li>
+	        <li><a ng-show="myValue" href="#!demandeFiches" title="Demander des fiches" id=grp-logo><span class="glyphicon glyphicon-share logo-small"></span>  Demander le partage de fiches</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#!connexionEtablissement" title="Inscription/Connexion/Déconnection" id=grp-logo>{{rootEtablissement.type}} {{rootEtablissement.nom}}    <span class="glyphicon glyphicon-off logo-small"></span></a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+	<div class="jumbotron text-center container-principal arrondie">
+		<div ng-view></div>
+	</div>
+
+	<script type="text/javascript"
+		src="../Ressources/Angular/angular.min.js"></script>
+	<script type="text/javascript"
+		src="../Ressources/Angular/angular-route.js"></script>
+	<script type="text/javascript" src="appEtablissement.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>

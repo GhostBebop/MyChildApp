@@ -1,0 +1,112 @@
+<head>
+<meta charset="UTF-8">
+<title>Demande de renseignements</title>
+</head>
+
+<div>
+	<div class="container panel container-secondaire">
+		<h2>Visualisation des demandes de partage d'informations</h2>
+	</div>
+	
+	<div ng-controller="selectEnfant" class="container panel container-secondaire">
+	
+		<h3>Sélectionner un enfant</h3>
+		<select ng-model="enf" ng-options="e as e.nom for e in mesEnfants">
+		</select> <br>
+		<br>
+		<button class="btn btn-default" class="btn btn-default"ng-click="afficherFichePrincipaleEnfant(enf.idEnfant)">Sélectionner</button>
+		<br>
+		<br>
+		
+	</div>
+</div>
+
+<div class="row">
+	<div ng-controller="findAllDemande"
+		class="container panel container-secondaire">
+		<h3>Demandes des établissements</h3>
+		<button class="btn btn-default"
+			ng-click="findAllDemande(rootEnfant.idEnfant)">Actualiser</button>
+		<br>
+		<table class="table">
+			<br>
+			<label> RECHERCHE PAR MOT CLEF : </label>
+			<br>
+			<p>
+				<input type="text" ng-model="test">
+			</p>
+			<thead>
+				<tr>
+					<th>Nom établissement</th>
+					<th>Nom enfant</th>
+					<th>Type fiche</th>
+					<th>Type établissement</th>
+
+				</tr>
+			</thead>
+			<tr ng-repeat="d in mesDemandes | filter:test">
+				<td>{{d.maDemandeEtablissement.nom}}</td>
+				<td>{{d.maDemandeFiche.monEnfant.nom}}</td>
+				<td>{{d.maDemandeFiche.typeFiche}}</td>
+				<td>{{d.maDemandeEtablissement.typeEtablissement}}</td>
+
+				<td><button class="btn btn-default"
+						ng-click="deleteDemande(d.idDemande,rootEnfant.idEnfant)">Décliner</button></td>
+				<td><button class="btn btn-default"
+						ng-click="acceptDemande(d.maDemandeEtablissement.idUser,d.maDemandeFiche.idFiche,d.idDemande,rootEnfant.idEnfant)">Accepter</button></td>
+			</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+</div>
+<div class="row">
+	<div ng-controller="selectFiche"
+		class="container panel container-secondaire">
+		<h3>Etablissements liés à mon enfant </h3>
+
+
+		<br> <select ng-model="f"
+			ng-options="f as f.typeFiche for f in mesFiches">
+
+		</select>
+		<button class="btn btn-default"
+			ng-click="selectFiche(rootEnfant.idEnfant)">Actualiser</button>
+		<br> <br>
+
+		<table class="table">
+			<br>
+			<label> RECHERCHE PAR MOT CLEF : </label>
+			<br>
+			<p>
+				<input type="text" ng-model="test">
+			</p>
+			<thead>
+				<tr>
+					<th>Nom établissement</th>
+					<th>Ville</th>
+					<th>Adresse</th>
+					<th>Code postal</th>
+					<th>Type établissement</th>
+
+				</tr>
+			</thead>
+			<tr ng-repeat="e in f.mesEtablissementsFiche | filter:test">
+				<td>{{e.nom}}</td>
+				<td>{{e.ville}}</td>
+				<td>{{e.adresse}}</td>
+				<td>{{e.typeEtablissement}}</td>
+
+
+				<td><button class="btn btn-default"
+						ng-click="dissocier(f.idFiche,e.idUser)">Retirer</button></td>
+
+
+			</tr>
+
+		</table>
+	</div>
+
+
+</div>

@@ -1,0 +1,41 @@
+<head>
+	<meta charset="UTF-8">
+	<title>Accueil Responsable</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../Ressources/CSS/style.css">
+</head>
+
+<body ng-app="appResponsable">
+
+	<div class="barette">
+		<div class="container">
+			<div style="text-align:left" class="col-sm-6">myChild'app</div>
+			<div style="text-align:right" class="col-sm-6">Interface Responsable</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default">
+	  <div class="collapse navbar-collapse">
+	    <ul class="nav navbar-nav">
+	        <li><a ng-show="myValue" href="#!ajoutEnfant" title="Enregistrer un enfant" id=grp-logo><span class="glyphicon glyphicon-plus logo-small"></span><span class="glyphicon glyphicon-user logo-small"></span>  Ajouter un enfant</a></li>
+	        <li><a ng-show="myValue" href="#!creationFiches" title="Enregistrer des fiches" id=grp-logo><span class="glyphicon glyphicon-plus logo-small"></span><span class="glyphicon glyphicon-list-alt logo-small"></span>  Renseigner des fiches</a></li>
+	        <li><a ng-show="myValue" href="#!gestionMesEnfants" title="Gérer mes enfants" id=grp-logo><span class="glyphicon glyphicon-eye-open logo-small"></span>  Visualiser les informations</a></li>
+	        <li><a ng-show="myValue" href="#!gestionFiches" title="Gérer les fiches" id=grp-logo><span class="glyphicon glyphicon-pencil logo-small"></span><span class="glyphicon glyphicon-list-alt logo-small"></span>  Modifier les informations</a></li>
+	        <li><a ng-show="myValue" href="#!demandesEtablissements" title="Partager les fiches" id=grp-logo><span class="glyphicon glyphicon-share logo-small"></span>  Gérer les demandes</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#!connexionResponsable" title="Inscription/Connexion/Déconnection" id=grp-logo>{{rootResponsable.prenom}} {{rootResponsable.nom}}    <span class="glyphicon glyphicon-off logo-small"></span></a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+	<div class="jumbotron text-center container-principal">
+		<div ng-view></div>
+	</div>
+
+	<script type="text/javascript" src="../Ressources/Angular/angular.min.js"></script>
+	<script type="text/javascript" src="../Ressources/Angular/angular-route.js"></script>
+	<script type="text/javascript" src="appResponsable.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body> 

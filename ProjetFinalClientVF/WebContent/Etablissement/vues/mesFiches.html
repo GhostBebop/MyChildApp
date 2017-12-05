@@ -1,0 +1,205 @@
+<head>
+<meta charset="UTF-8">
+<title>Mes fiches de renseignements</title>
+</head>
+<div>
+	<div class="container panel container-secondaire">
+				<h2>Visualiser mes fiches</h2>
+	</div>
+	<form>
+		<div class="container panel container-secondaire">
+			<h3>Sélectionner un type de fiche</h3>
+			<br> 
+			<div class="col-sm-2"></div>
+			<div class="col-sm-2"><input type="radio" ng-model="myVar" value="fichePrincipale"> Fiche principale</div>
+			<div class="col-sm-2"><input type="radio" ng-model="myVar" value="ficheImage"> Fiche droit à l'image</div>
+			<div class="col-sm-2"><input type="radio" ng-model="myVar" value="ficheMedical"> Fiche médicale</div> 
+			<div class="col-sm-2"><input type="radio" ng-model="myVar" value="ficheVaccin"> Fiche vaccination</div>
+			<div class="col-sm-2"></div> <br>
+		</div>
+	</form>
+</div>
+<div class="row">
+
+	<div ng-switch="myVar">
+		<div ng-switch-when="fichePrincipale">
+			<div class="container panel container-secondaire"
+				ng-controller="findAllFicheEtablissement"
+				class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel container-secondaire">
+
+				<h3>Fiches principales</h3>
+				<br> <label> RECHERCHE PAR MOT CLEF : </label> <br>
+				<p>
+					<input type="text" ng-model="test">
+				</p>
+				<table class="table">
+					<button class="btn btn-default"
+						ng-click="findAllFichePrincipaleEtablissement(rootEtablissement.idUser)">Actualiser</button>
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>Date de naissance</th>
+							<th>Ville</th>
+							<th>Adresse</th>
+							<th>Tel. Maison</th>
+							<th>Regime Cantine</th>
+							<th>Statut Etude</th>
+							<th>Statut Sortie</th>
+							<th>Transport</th>
+							<th>Pension</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="f in mesFichesPrincipales | filter:test">
+							<td>{{f.monEnfant.nom}}</td>
+							<td>{{f.monEnfant.prenom}}</td>
+							<td>{{f.monEnfant.dateDeNaissance}}</td>
+							<td>{{f.ville}}</td>
+							<td>{{f.adresse}}</td>
+							<td>{{f.telMaison}}</td>
+							<td>{{f.regimeCantine}}</td>
+							<td>{{f.statutEtude}}</td>
+							<td>{{f.statutSortie}}</td>
+							<td>{{f.transport}}</td>
+							<td>{{f.pension}}</td>
+
+							<td><button class="btn btn-default"
+									ng-click="dissocier(f.idFiche,rootEtablissement.idUser)">Dissocier</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div ng-switch="myVar">
+		<div ng-switch-when="ficheMedical">
+			<div class="row">
+				<div class="container panel container-secondaire"
+					ng-controller="findAllFicheEtablissement"
+					class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel container-secondaire">
+
+					<h3>Fiches médicales</h3>
+					<br> <label> RECHERCHE PAR MOT CLEF : </label> <br>
+					<p>
+						<input type="text" ng-model="test">
+					</p>
+					<table class="table">
+						<button class="btn btn-default"
+							ng-click="findAllFicheMedicalEtablissement(rootEtablissement.idUser)">Actualiser</button>
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Prénom</th>
+								<th>Date de naissance</th>
+								<th>Statut spécialiste</th>
+								<th>Observation</th>
+								<th>Traitement</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="f in mesFichesMedicales | filter:test">
+								<td>{{f.monEnfant.nom}}</td>
+								<td>{{f.monEnfant.prenom}}</td>
+								<td>{{f.monEnfant.dateDeNaissance}}</td>
+								<th>{{f.statutSpecialiste}}</th>
+								<th>{{f.observation}}</th>
+								<th>{{f.traitement}}</th>
+
+								<td><button class="btn btn-default"
+										ng-click="dissocier(f.idFiche,rootEtablissement.idUser)">Dissocier</button></td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-switch="myVar">
+		<div ng-switch-when="ficheVaccin">
+			<div class="row">
+				<div class="container panel container-secondaire"
+					ng-controller="findAllFicheEtablissement"
+					class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel container-secondaire">
+
+					<h3>Fiches vaccination</h3>
+					<br> <label> RECHERCHE PAR MOT CLEF : </label> <br>
+					<p>
+						<input type="text" ng-model="test">
+					</p>
+					<table class="table">
+						<button class="btn btn-default"
+							ng-click="findAllFicheVaccinEtablissement(rootEtablissement.idUser)">Actualiser</button>
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Prénom</th>
+								<th>Date de naissance</th>
+								<th>Statut spécialiste</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="f in mesFichesVaccins | filter:test">
+								<td>{{f.monEnfant.nom}}</td>
+								<td>{{f.monEnfant.prenom}}</td>
+								<td>{{f.monEnfant.dateDeNaissance}}</td>
+								<th>{{f.statut}}</th>
+
+								<td><button class="btn btn-default"
+										ng-click="dissocier(f.idFiche,rootEtablissement.idUser)">Dissocier</button></td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div ng-switch="myVar">
+		<div ng-switch-when="ficheImage">
+			<div class="row">
+				<div class="container panel container-secondaire"
+					ng-controller="findAllFicheEtablissement"
+					class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel container-secondaire">
+
+					<h3>Fiches Images</h3>
+					<br> <label> RECHERCHE PAR MOT CLEF : </label> <br>
+					<p>
+						<input type="text" ng-model="test">
+					</p>
+					<table class="table">
+						<button class="btn btn-default"
+							ng-click="findAllFicheImageEtablissement(rootEtablissement.idUser)">Actualiser</button>
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Prénom</th>
+								<th>Date de naissance</th>
+								<th>Statut droit à l'image</th>
+								<th>Classe</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="f in mesFichesImages | filter:test">
+								<td>{{f.monEnfant.nom}}</td>
+								<td>{{f.monEnfant.prenom}}</td>
+								<td>{{f.monEnfant.dateDeNaissance}}</td>
+								<th>{{f.statutImage}}</th>
+								<th>{{f.classe}}</th>
+								<td><button class="btn btn-default"
+										ng-click="dissocier(f.idFiche,rootEtablissement.idUser)">Dissocier</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,283 @@
+
+<head>
+<meta charset="UTF-8">
+<title>Gestion fiches</title>
+</head>
+<div>
+
+	<div class="container panel container-secondaire">
+		<h2>Modification des informations</h2>
+	</div>
+	
+	<div ng-controller="selectEnfant"
+		class="container panel container-secondaire">
+		<h3>Sélectionner un enfant</h3>
+
+
+		<select ng-model="enf" ng-options="e as e.prenom for e in mesEnfants">
+
+		</select> <br> <br>
+
+		<button class="btn btn-default" ng-click="afficherFichePrincipaleEnfant(enf.idEnfant)">Sélectionner
+		</button>
+		<br> <br>
+
+	</div>
+
+	<div class="row">
+		<div ng-controller="selectFiche"
+			class="container panel container-secondaire">
+			<h3>Sélectionner une fiche</h3>
+			<br> 
+			<button class="btn btn-default" ng-click="selectFiche(rootEnfant.idEnfant)">Actualiser la liste</button>
+			<select ng-model="f" ng-options="f as f.typeFiche for f in mesFiches"></select>
+			<br>
+			<br>
+			<button class="btn btn-default" ng-click="update(f.idFiche)">Modifier la fiche</button>
+			<br>
+			<br>
+		</div>
+	</div>
+	<div class="row">
+
+
+		<div ng-switch="myVar1">
+			<div ng-switch-when="fichePrincipale">
+				<div class="container panel container-secondaire">
+					<h3>Modification fiche principale</h3>
+
+					<form name="myFormP" class="form-horizontal"
+						ng-controller="registerFicheUpdate">
+
+
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Ville : </label>
+							<div class="col-sm-2">
+								<input name="ville" type="text" ng-model="ficheUpdate.ville"
+									required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Adresse : </label>
+							<div class="col-sm-2">
+								<input name="adresse" type="text" ng-model="ficheUpdate.adresse"
+									required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Tel.maison : </label>
+							<div class="col-sm-2">
+								<input name="telMaison" type="text"
+									ng-model="ficheUpdate.telMaison" required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Regime cantine : </label>
+							<div class="col-sm-2">
+								<input name="regimeCantine" type="text"
+									ng-model="ficheUpdate.regimeCantine" required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Statut étude : </label>
+							<div class="col-sm-2">
+								<select name="statutEtude" ng-model="ficheUpdate.statutEtude"
+									required>
+									<option value="autorisation sortie">Autorisation sortie</option>
+									<option value="etude obligatoire">Etude obligatoire</option>
+								</select>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Statut sortie : </label>
+							<div class="col-sm-2">
+								<select name="statutSortie" ng-model="ficheUpdate.statutSortie"
+									required>
+									<option value="Oui">Oui</option>
+									<option value="Non">Non</option>
+								</select>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Transport : </label>
+							<div class="col-sm-2">
+								<input name="transport" type="text"
+									ng-model="ficheUpdate.transport" required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Pension : </label>
+							<div class="col-sm-2">
+								<select ng-model="ficheUpdate.pension" name="pension" required>
+									<option value="demi-pensionnaire">Demi-pensionnaire</option>
+									<option value="pensionnaire">Pensionnaire</option>
+									<option value="externe">Externe</option>
+								</select>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+
+
+
+
+
+						<button class="btn btn-default"
+							ng-disabled="myFormP.adresse.$invalid||  
+									myFormP.ville.$invalid||  
+									myFormP.telMaison.$invalid ||    	  
+									 myFormP.transport.$invalid||
+									  myFormP.pension.$invalid||
+									  myFormP.statutSortie.$invalid||
+									  myFormP.statutEtude.$invalid"
+							ng-click="registerFichePrincipale()">Modifier fiche principale</button>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div ng-switch="myVar1">
+			<div ng-switch-when="registerFicheUpdate">
+
+				<div class="container panel container-secondaire">
+					<h3>Modification fiche médicale</h3>
+
+					<form name="myFormM" class="form-horizontal"
+						ng-controller="registerFiche">
+
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Traitement : </label>
+							<div class="col-sm-2">
+								<input name="traitement" type="text"
+									ng-model="ficheUpdate.traitement" required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Observation : </label>
+							<div class="col-sm-2">
+								<input name="observation" type="text"
+									ng-model="ficheUpdate.observation" required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Statut spécialiste
+								: </label>
+							<div class="col-sm-2">
+								<input name="statuSpecialiste" type="text"
+									ng-model="ficheUpdate.statutSpecialiste" required>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+						<button class="btn btn-default"
+							ng-disabled="myFormM.traitement.$invalid||  
+									myFormM.observation.$invalid||  
+									myFormM.statutSpecialiste.$invalid"
+							ng-click="registerficheMedical()">Modifier fiche médicale</button>
+						<br>
+
+					</form>
+				</div>
+			</div>
+		</div>
+		<div ng-switch="myVar1">
+			<div ng-switch-when="ficheVaccin">
+				<div class="container panel container-secondaire">
+					<h3>Modification fiche vaccination</h3>
+
+
+					<form name="myFormV" class="form-horizontal"
+						ng-controller="registerFicheUpdate">
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Statut vaccin : </label>
+							<div class="col-sm-2">
+								<select name="statutVaccins"
+									ng-model="ficheUpdate.statutVaccins" required="required">
+									<option value="à jour">A jour</option>
+									<option value="pas à jour">Retard</option>
+								</select>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+
+						<button  class="btn btn-default" ng-disabled="myFormV.statutVaccins.$invalid"
+							ng-click="registerFicheVaccins()">Modifier fiche vaccination</button>
+						<br>
+
+					</form>
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<div ng-switch="myVar1">
+			<div ng-switch-when="ficheImage">
+				<div class="container panel container-secondaire">
+					<h3>Modification fiche droit à l'image</h3>
+
+					<form name="myFormI" class="form-horizontal"
+						ng-controller="registerFicheUpdate">
+
+
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<label class="control-label col-sm-2"> Statut droit à l'image : </label>
+							<div class="col-sm-2">
+								<select name="statutImage" ng-model="ficheUpdate.statutImage"
+									required="required">
+									<option value="autoriser">Autoriser</option>
+									<option value="refuser">Refuser</option>
+								</select>
+							</div>
+							<div class="col-sm-2"></div>
+						</div>
+
+
+						<button class="btn btn-default"
+							ng-disabled="myFormI.statutImage.$invalid || myFormI.classe.$invalid"
+							ng-click="registerFicheImage()">Modifier droit à l'image</button>
+						<br>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

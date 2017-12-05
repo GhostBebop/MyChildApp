@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>MyChild'app - Accueil</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./Ressources/CSS/styleAccueil.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+ 
+</head>
+
+<body id="accueil" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <ul class="nav navbar-nav">
+        <li><a href="#/!"><span class="glyphicon glyphicon-home logo-small" style='font-size: 15px; color: #fff'></span></a></li>
+        <li><a href="./Responsable/indexResponsable.html"><span class="glyphicon glyphicon-off logo-small" style='font-size: 15px; color: #fff'></span>Responsable enfant</a></li>
+        <li><a href="./Etablissement/indexEtablissement.html"><span class="glyphicon glyphicon-off logo-small" style='font-size: 15px; color: #fff'></span>Etablissement</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#about">A PROPOS</a></li>
+      <li><a href="#services">NOS ATOUTS</a></li>
+      <li><a href="#portfolio">AVIS</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>myChild'app</h1> 
+  <p>Facilitateur de démarches administratives pour les responsables légaux et les établissements</p> 
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>A propos</h2><br>
+      <h4>Née en 2017, de l'initiative de parents d'élèves, à partir d'un concept simple : créer une interface qui permet de simplifier les démarches administratives d'inscription de ses enfants dans les établissements scolaires et de loisirs. </h4><br>
+      <p>Chaque année, à la rentrée scolaire, les parents doivent remplir de multiples documents administratifs sous format papier, dont les informations sont souvent redondantes, et le remplissage rébarbatif. 
+      Les établissements qui accueillent des enfants doivent ensuite traiter, et stocker ces multiples informations, avec le risque d'en égarer.
+      Grâce à la plateforme myChild'app, les informations peuvent être partagées entre parents et établissements en toute simplicité.</p>
+      <br>
+    </div>
+    <div class="col-sm-6 slideanim" >
+      <img src="Ressources/Images/Enfant.jpg"></img>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center bg-grey">
+  <h2>NOS ATOUTS</h2>
+  <h4>Pourquoi choisir myChild'app ?</h4>
+  <br>
+  <div class="row slideanim">
+  	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-2">
+      <span class="glyphicon glyphicon-ok logo-small"></span>
+      <h4>Simplicité d'utilisation</h4>
+      <p>L'application a été pensée pour vous faciliter les démarches et la visualisation de vos informations sous forme de fiches spécifiques.</p>
+    </div>
+    <div class="col-sm-2">
+      <span class="glyphicon glyphicon-user logo-small"></span>
+      <h4>Interface adaptée</h4>
+      <p>Que vous soyez un responsable légal d'enfant ou bien un établissement d'accueil d'enfant (école, club, centre de loisirs), l'interface est adaptée à vos besoins spécifiques.</p>
+    </div>
+    <div class="col-sm-2">
+      <span class="glyphicon glyphicon-time logo-small"></span>
+      <h4>Gain de temps</h4>
+      <p>Grâce à myChild'app, gagnez du temps ! Parents, vous pouvez simplement partager les informations de vos enfants à plusieurs établissements. Etablissements, demandez, récupérez et stocker rapidement les informations dont vous avez besoin.</p>
+    </div>
+    <div class="col-sm-2">
+      <span class="glyphicon glyphicon-lock logo-small"></span>
+      <h4>Sécurité des données</h4>
+      <p>Les données des enfants ne sont accessibles qu'aux établissements qui en effectuent la demande, avec l'accord des parents. Les parents peuvent à tout moment décider de ne plus partager certaines informations.</p>
+    </div>
+    <div class="col-sm-2">
+      <span class="glyphicon glyphicon-leaf logo-small"></span>
+      <h4>Eco-responsabilité</h4>
+      <p>Avec myChild'app, on économise le papier et on fait du bien à la planète.</p>
+    </div>
+    <div class="col-sm-1">
+    </div>
+  </div>
+  <br><br>
+</div>
+
+<!-- Container (Users X Section) -->
+<div id="portfolio" class="container-fluid text-center">
+  <h2>Ce que nos utilisateurs disent de nous</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"Depuis que j'utilise myChild'app, les inscriptions administratives de la rentrée ne sont plus une corvée !"<br><span>Utilisatrice anonyme, Île-de-France, Saint-Maur-des-Fossés</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Simple, ludique, efficient, bref parfait ! "<br><span>Utilisatrice anonyme, Île-de-France, Paris </span></h4>
+      </div>
+    <div class="item">
+        <h4>"Quelle invention pratique ! Il fallait y penser ! J'espère que de plus en plus d'établissements vont utiliser ce système."<br><span>Utilisateur anonyme, Île-de-France, Paris </span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<footer class="container-fluid text-center bg-grey">
+  <a href="#accueil" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Web application Made By G1forChild</p>
+</footer>
+
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#accueil']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+	
+</body>
+</html>

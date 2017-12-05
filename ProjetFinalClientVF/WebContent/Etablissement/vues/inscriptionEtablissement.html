@@ -1,0 +1,122 @@
+<head>
+	<meta charset="UTF-8">
+	<title>Inscription Etablissement</title>
+
+</head>
+
+<div>
+
+	<div class="container panel container-secondaire" >
+	<h2>Inscription</h2><br>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Type d'établissement : </label>
+				<div class="col-sm-1">
+					<input type="radio" ng-model="myVar" value="ecole"> Ecole
+				</div>
+				<div class="col-sm-1">
+					<input type="radio" ng-model="myVar" value="club"> Club
+				</div>
+				<div class="col-sm-2">
+					<input type="radio" ng-model="myVar" value="centreLoisirs"> Centre de loisirs
+				</div>
+			</div>
+		</form>
+
+		<form class="form-horizontal" name="myForm" ng-controller="registerEstablishment">
+			<div class="form-group">
+				<label class="control-label col-sm-2"> NOM : </label>
+				<div class="col-sm-8">
+					<input name="nom" type="text" ng-model="etablissement.nom" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+					<span style="color: #ff7d7d; float:left" ng-show="myForm.nom.$error.requi#ff7d7d">NOM requis</span><br>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Ville : </label>
+				<div class="col-sm-8">
+					<input name="ville" type="text" ng-model="etablissement.ville" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+					<span style="color: #ff7d7d; float:left" ng-show="myForm.ville.$error.requi#ff7d7d">Ville requise</span><br>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Adresse : </label>
+				<div class="col-sm-8">
+					<input name="adresse" type="text" ng-model="etablissement.adresse" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+					<span style="color: #ff7d7d; float:left" ng-show="myForm.adresse.$error.requi#ff7d7d">Adresse requise</span><br>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Code Postal : </label>
+				<div class="col-sm-8">
+					<input name="codePostal" type="text" ng-model="etablissement.codePostal" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+					<span style="color: #ff7d7d; float:left" ng-show="myForm.codePostal.$error.requi#ff7d7d">Code postal requis</span><br>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Identifiant : </label>
+				<div class="col-sm-8">
+					<input type="text" name="login" ng-model="connexion.login" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+				<span style="color: #ff7d7d; float:left" ng-show="myForm.login.$error.requi#ff7d7d">Identifiant requis</span><br>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2"> Mot de passe : </label>
+				<div class="col-sm-8">
+					<input name="mdp" type="password" ng-model="connexion.mdp" class="form-control" required> 
+				</div>
+				<div class="col-sm-2">
+					<span style="color: #ff7d7d; float:left" ng-show="myForm.mdp.$error.requi#ff7d7d">Mot de passe requis</span><br>
+				</div>
+			</div>
+		
+			<div class="form-group">        	
+				<div ng-switch="myVar">
+					<div ng-switch-when="ecole">
+						<button class="btn btn-default"
+							ng-disabled="myForm.nom.$invalid||  
+								myForm.ville.$invalid||  
+								myForm.adresse.$invalid ||  
+								myForm.codePostal.$invalid||  
+								myForm.login.$invalid||  
+								 myForm.mdp.$invalid"
+							ng-click="registerSchool()">Envoyer formulaire</button>
+						<br>
+					</div>
+					<div ng-switch-when="club">
+						<button class="btn btn-default"
+							ng-disabled="myForm.nom.$invalid||  
+								myForm.ville.$invalid||  
+								myForm.adresse.$invalid ||  
+								myForm.codePostal.$invalid||  
+								myForm.login.$invalid||  
+								 myForm.mdp.$invalid"
+							ng-click="registerClub()">Envoyer formulaire</button>
+						<br>
+					</div>
+					<div ng-switch-when="centreLoisirs">
+						<button class="btn btn-default"
+							ng-disabled="myForm.nom.$invalid||  
+								myForm.ville.$invalid||  
+								myForm.adresse.$invalid ||  
+								myForm.codePostal.$invalid||  
+								myForm.login.$invalid||  
+								 myForm.mdp.$invalid"
+							ng-click="registerCentreLosirs()">Envoyer formulaire</button>
+						<br>
+					</div>
+				</div>
+			</div>
+  
+		</form>
+	</div>
+</div>

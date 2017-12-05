@@ -1,0 +1,50 @@
+<head>
+<meta charset="UTF-8">
+<title>Gestion des renseignements enfants</title>
+</head>
+
+<div>
+	<div class="row">
+		<div class="container panel container-secondaire">
+				<h2>Demande de fiches disponibles</h2>
+		</div>
+		
+		<div ng-controller="findAllFiche" class="container panel container-secondaire">
+			<table class="table">
+				<br>
+				<button class="btn btn-default" ng-click="findAllFiche(rootEtablissement.idUser)">Actualiser la liste</button>
+				<br><br>
+				<label> RECHERCHE PAR MOT CLEF : </label>
+				<p>
+					<input type="text" ng-model="test">
+				</p>
+				<thead>
+					<tr>
+						<th>NOM enfant</th>
+						<th>Prénom enfant</th>
+						<th>Date de naissance enfant</th>
+						<th>NOM responsable</th>
+						<th>Type de fiche</th>
+
+					</tr>
+				</thead>
+				<tr ng-repeat="f in fiches | filter:test">
+					<td>{{f.monEnfant.nom}}</td>
+					<td>{{f.monEnfant.prenom}}</td>
+					<td>{{f.monEnfant.dateDeNaissance}}</td>
+					<td>{{f.monEnfant.monResponsable.nom}}</td>
+					<th>{{f.typeFiche}}</th>
+
+					<td><button class="btn btn-default"
+							ng-click="demande(rootEtablissement.idUser,f.idFiche,f.monEnfant.idEnfant)">Demander la fiche</button></td>
+				</tr>
+
+			</table>
+
+
+		</div>
+	</div>
+
+
+</div>
+
